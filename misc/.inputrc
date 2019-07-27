@@ -1,0 +1,4 @@
+set completion-ignore-case on
+set show-mode-in-prompt on
+set vi-ins-mode-string "\[\e[33m\][I]\[\e[m\] "
+set vi-cmd-mode-string "[N] "
