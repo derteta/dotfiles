@@ -20,7 +20,8 @@ do
 done
 
 backup_file $bashrc_path
-echo 'for f in $(ls '$bash_dir'/*.sh); do source $f; done' > $bashrc_path
+echo 'export PS1="\[\e[32m\]\A\[\e[m\] | \[\e[36m\]\w\[\e[m\] $ "' > $bashrc_path
+echo 'for f in $(ls '$bash_dir'/*.sh); do source $f; done' >> $bashrc_path
 
 backup_file $inputrc_path
 curl -o $inputrc_path $repo_url/misc/.inputrc

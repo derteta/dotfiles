@@ -27,5 +27,3 @@ if ! shopt -oq posix; then
     [ -f $compl ] && . $compl
   done
 fi
-
-export PS1="\[\e[36m\]\d\[\e[m\] | \[\e[36m\]\A\[\e[m\] | \[\e[32m\]\W\[\e[m\] > "
