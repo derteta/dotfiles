@@ -35,9 +35,10 @@ do
 done
 
 echo "===== Installing Windowing Environment ====="
-$apt_install_cmd lightdm i3wm rofi rxvt-unicode xserver-xorg-input-synaptics \
-  nm-applet volumeicon libnotify-bin flameshot \
+$apt_install_cmd lightdm i3 rofi rxvt-unicode xserver-xorg-input-synaptics \
+  volumeicon-alsa libnotify-bin flameshot \
   firefox-esr thunderbird
+#TODO replacement for nm-applet
 $pip_install_cmd spotify-cli-linux
 curl -o $HOME/Pictures/wallpaper.jpg https://images4.alphacoders.com/589/589406.jpg
 
