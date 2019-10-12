@@ -3,6 +3,7 @@
 # Exit on the first failing command
 set -e
 
+export DEBIAN_FRONTEND=noninteractive
 apt_install_cmd="sudo apt --assume-yes --quiet install"
 pip_install_cmd="sudo pip3 install"
 dev_folder=$HOME/Documents/dev
@@ -14,6 +15,16 @@ urxvt_plugin_repo="https://raw.githubusercontent.com/muennich/urxvt-perls/master
 [ ! -d $dev_folder/third-party ] && mkdir -p $dev_folder/third-party
 [ ! -d $HOME/Pictures ] && mkdir -p $HOME/Pictures
 [ ! -d $urxvt_plugin_folder ] && sudo mkdir -p $urxvt_plugin_folder
+
+echo "===== Upgrading to Debian testing ====="
+echo "deb http://ftp.de.debian.org/debian/ testing main contrib non-free" | sudo tee /etc/apt/sources.list
+echo "deb-src http://ftp.de.debian.org/debian/ testing contrib main" | sudo tee -a /etc/apt/sources.list
+echo "deb http://security.debian.org/debian-security testing-security main" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://security.debian.org/debian-security testing-security main" | sudo tee -a /etc/apt/sources.list
+
+sudo apt --assume-yes --quiet update
+sudo apt --assume-yes --quiet upgrade
+sudo apt --assume-yes --quiet dist-upgrade
 
 echo "===== Installing Development Tools ====="
 $apt_install_cmd build-essential python3 python3-pip perl git
