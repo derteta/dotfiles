@@ -20,7 +20,7 @@ $apt_install_cmd build-essential python3 python3-pip perl git
 $pip_install_cmd nose mock
 
 echo "===== Installing Terminal Environment ====="
-$apt_install_cmd fzf ripgrep bash-completion curl
+$apt_install_cmd fzf ripgrep bash-completion curl ncurses-dev
 #TODO install geeknote
 
 echo "===== Setting up URXVT Plugins ====="
