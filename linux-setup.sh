@@ -35,8 +35,10 @@ $apt_install_cmd fzf ripgrep bash-completion curl ncurses-dev
 #TODO install geeknote
 
 echo "===== Setting up URXVT Plugins ====="
-sudo curl -o $urxvt_plugin_folder/keyboard-select $urxvt_plugin_repo/keyboard-select
-sudo curl -o $urxvt_plugin_folder/url-select $urxvt_plugin_repo/deprecated/url-select
+[ ! -f $urxvt_plugin_folder/keyboard-select ] && \
+  sudo curl -o $urxvt_plugin_folder/keyboard-select $urxvt_plugin_repo/keyboard-select
+[ ! -f $urxvt_plugin_folder/url-select ] && \
+  sudo curl -o $urxvt_plugin_folder/url-select $urxvt_plugin_repo/deprecated/url-select
 
 echo "===== Setting up Development Projects ====="
 [ ! -d $dev_folder/third-party/vim ] && \
