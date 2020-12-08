@@ -10,6 +10,8 @@ alias ll='ls -l'
 alias la='ls -lA'
 alias l='ls -CF'
 
+alias pcp='rsync --progress'
+
 alias gn='geeknote'
 alias e_bash='$EDITOR ~/.config/derteta/bash'
 alias e_i3='$EDITOR ~/.config/i3/config'
