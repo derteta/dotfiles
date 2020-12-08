@@ -12,6 +12,7 @@ urxvt_plugin_folder=/usr/lib/urxvt/perl
 my_github_repo="https://github.com/derteta"
 urxvt_plugin_repo="https://raw.githubusercontent.com/muennich/urxvt-perls/master"
 
+[ ! -d $dev_folder/forks ] && mkdir -p $dev_folder/forks
 [ ! -d $dev_folder/third-party ] && mkdir -p $dev_folder/third-party
 [ ! -d $HOME/Pictures ] && mkdir -p $HOME/Pictures
 [ ! -d $urxvt_plugin_folder ] && sudo mkdir -p $urxvt_plugin_folder
@@ -32,7 +33,6 @@ $pip_install_cmd nose mock
 
 echo "===== Installing Terminal Environment ====="
 $apt_install_cmd fzf ripgrep bash-completion curl ncurses-dev
-#TODO install geeknote
 
 echo "===== Setting up URXVT Plugins ====="
 [ ! -f $urxvt_plugin_folder/keyboard-select ] && \
@@ -43,6 +43,8 @@ echo "===== Setting up URXVT Plugins ====="
 echo "===== Setting up Development Projects ====="
 [ ! -d $dev_folder/third-party/vim ] && \
   git clone https://github.com/vim/vim.git $dev_folder/third-party/vim
+[ ! -d $dev_folder/forks/geeknote ] && \
+  git clone $my_github_repo/geeknote.git $dev_folder/forks/geeknote
 for project in vimpair dotfiles dev-blog
 do
   [ ! -d $dev_folder/$project ] && \
