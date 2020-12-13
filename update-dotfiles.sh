@@ -3,7 +3,6 @@
 repo_url=https://raw.githubusercontent.com/derteta/dotfiles/master
 bash_dir=~/.config/derteta/bash
 bashrc_path=~/.bashrc
-inputrc_path=~/.inputrc
 i3_dir=~/.config/i3
 i3_path=$i3_dir/config
 i3status_dir=~/.config/i3status
@@ -26,8 +25,11 @@ backup_file $bashrc_path
 echo 'export PS1="\[\e[32m\]\A\[\e[m\] | \[\e[36m\]\w\[\e[m\] $ "' > $bashrc_path
 echo 'for f in $(ls '$bash_dir'/*.sh); do source $f; done' >> $bashrc_path
 
-backup_file $inputrc_path
-curl -o $inputrc_path $repo_url/misc/.inputrc
+for f in profile inputrc
+do
+  backup_file ~/.$f
+  curl -o ~/.$f $repo_url/misc/.$f
+done
 
 if [ ! -z $(uname -s | grep -i Linux) ]; then
   [ ! -d $i3_dir ] && mkdir -p $i3_dir
