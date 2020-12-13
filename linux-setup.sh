@@ -10,7 +10,8 @@ dev_folder=$HOME/Documents/dev
 urxvt_plugin_folder=/usr/lib/urxvt/perl
 
 my_github_repo="https://github.com/derteta"
-urxvt_plugin_repo="https://raw.githubusercontent.com/muennich/urxvt-perls/master"
+urxvt_plugin_repo1="https://raw.githubusercontent.com/muennich/urxvt-perls/master"
+urxvt_plugin_repo2="https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master"
 
 [ ! -d $dev_folder/forks ] && mkdir -p $dev_folder/forks
 [ ! -d $dev_folder/third-party ] && mkdir -p $dev_folder/third-party
@@ -36,9 +37,11 @@ $apt_install_cmd fzf ripgrep bash-completion curl ncurses-dev
 
 echo "===== Setting up URXVT Plugins ====="
 [ ! -f $urxvt_plugin_folder/keyboard-select ] && \
-  sudo curl -o $urxvt_plugin_folder/keyboard-select $urxvt_plugin_repo/keyboard-select
+  sudo curl -o $urxvt_plugin_folder/keyboard-select $urxvt_plugin_repo1/keyboard-select
 [ ! -f $urxvt_plugin_folder/url-select ] && \
-  sudo curl -o $urxvt_plugin_folder/url-select $urxvt_plugin_repo/deprecated/url-select
+  sudo curl -o $urxvt_plugin_folder/url-select $urxvt_plugin_repo1/deprecated/url-select
+[ ! -f $urxvt_plugin_folder/font-size ] && \
+  sudo curl -o $urxvt_plugin_folder/fond-size $urxvt_plugin_repo2/font-size
 
 echo "===== Setting up Development Projects ====="
 [ ! -d $dev_folder/third-party/vim ] && \
