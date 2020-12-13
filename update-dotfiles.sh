@@ -38,4 +38,7 @@ if [ ! -z $(uname -s | grep -i Linux) ]; then
   [ ! -d $i3status_dir ] && mkdir -p $i3status_dir
   backup_file $i3status_path
   curl -o $i3status_path $repo_url/i3status/config
+
+  backup_file ~/.Xdefaults
+  curl -o ~/.Xdefaults $repo_url/misc/.Xdefaults
 fi

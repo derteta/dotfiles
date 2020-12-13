@@ -1,0 +1,26 @@
+!! URXVT
+! Look & Feel
+URxvt.depth: 32
+URxvt.background: [80]#000000
+URxvt.foreground: [80]#eeeeee
+URxvt.scrollBar: false
+URxvt.font: xft:monospace:size=11,xft:DejaVu Sans Mono
+
+! Fake Transparency until we get compton to work properly
+URxvt.transparent: true
+URxvt.shading: 14
+
+! Extensions
+URxvt.perl-lib:/usr/lib/urxvt/perl/
+URxvt.perl-ext-common: keyboard-select,url-select,font-size
+URxvt.keyboard-select.clipboard: true
+URxvt.url-select.underline: true
+
+! Keybindings
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-Up: perl:font-size:increase
+URxvt.keysym.M-Down: perl:font-size:decrease
+URxvt.keysym.M-Left: perl:font-size:reset
