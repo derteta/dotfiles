@@ -4,6 +4,8 @@ repo_url=https://raw.githubusercontent.com/derteta/dotfiles/master
 bash_dir=~/.config/derteta/bash
 bashrc_path=~/.bashrc
 inputrc_path=~/.inputrc
+i3_dir=~/.config/i3
+i3_path=$i3_dir/config
 i3status_dir=~/.config/i3status
 i3status_path=$i3status_dir/config
 
@@ -28,6 +30,9 @@ backup_file $inputrc_path
 curl -o $inputrc_path $repo_url/misc/.inputrc
 
 if [ ! -z $(uname -s | grep -i Linux) ]; then
+  [ ! -d $i3_dir ] && mkdir -p $i3_dir
+  backup_file $i3_path
+  curl -o $i3_path $repo_url/i3/config
   [ ! -d $i3status_dir ] && mkdir -p $i3status_dir
   backup_file $i3status_path
   curl -o $i3status_path $repo_url/i3status/config
