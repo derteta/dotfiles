@@ -56,10 +56,11 @@ done
 
 echo "===== Installing Windowing Environment ====="
 $apt_install_cmd lightdm i3 rofi rxvt-unicode xserver-xorg-input-synaptics \
-  volumeicon-alsa wicd-gtk libnotify-bin flameshot \
+  volumeicon-alsa libnotify-bin flameshot \
   firefox-esr thunderbird
 $pip_install_cmd spotify-cli-linux
 curl -o $HOME/Pictures/wallpaper.jpg https://images4.alphacoders.com/589/589406.jpg
+# optional packages: wicd-gtk (seems to be removed from testing/unstable)
 
 echo "===== Setting up Dotfiles ====="
 sh $dev_folder/dotfiles/update-dotfiles.sh
