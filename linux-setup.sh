@@ -13,9 +13,12 @@ my_github_repo="https://github.com/derteta"
 urxvt_plugin_repo1="https://raw.githubusercontent.com/muennich/urxvt-perls/master"
 urxvt_plugin_repo2="https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master"
 
+for folder in Desktop Documents Downloads Movies Music Pictures
+do
+  [ ! -d $HOME/$folder ] && mkdir -p $HOME/$folder
+done
 [ ! -d $dev_folder/forks ] && mkdir -p $dev_folder/forks
 [ ! -d $dev_folder/third-party ] && mkdir -p $dev_folder/third-party
-[ ! -d $HOME/Pictures ] && mkdir -p $HOME/Pictures
 [ ! -d $urxvt_plugin_folder ] && sudo mkdir -p $urxvt_plugin_folder
 
 echo "===== Upgrading to Debian testing ====="
