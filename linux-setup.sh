@@ -36,7 +36,7 @@ $apt_install_cmd build-essential python3 python3-pip perl git
 $pip_install_cmd nose mock
 
 echo "===== Installing Terminal Environment ====="
-$apt_install_cmd fzf ripgrep bash-completion curl ncurses-dev
+$apt_install_cmd fzf ripgrep bash-completion curl ncurses-dev xsel
 
 echo "===== Setting up URXVT Plugins ====="
 [ ! -f $urxvt_plugin_folder/keyboard-select ] && \
@@ -60,7 +60,7 @@ done
 echo "===== Installing Windowing Environment ====="
 $apt_install_cmd lightdm i3 rofi rxvt-unicode xserver-xorg-input-synaptics \
   volumeicon-alsa libnotify-bin flameshot \
-  firefox-esr thunderbird
+  firefox-esr thunderbird keynav
 $pip_install_cmd spotify-cli-linux
 curl -o $HOME/Pictures/wallpaper.jpg https://images4.alphacoders.com/589/589406.jpg
 # optional packages: wicd-gtk (seems to be removed from testing/unstable)
