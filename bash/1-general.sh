@@ -3,6 +3,7 @@
 set -o vi
 export TERM=xterm-256color
 export EDITOR=vim
+export MANPAGER="vim -M +MANPAGER --not-a-term -"
 export LC_ALL=C
 
 HISTCONTROL=ignoreboth
