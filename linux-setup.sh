@@ -32,7 +32,7 @@ sudo apt --assume-yes --quiet upgrade
 sudo apt --assume-yes --quiet dist-upgrade
 
 echo "===== Installing Development Tools ====="
-$apt_install_cmd build-essential python3 python3-pip perl git
+$apt_install_cmd build-essential python3 python3-pip perl git golang
 $pip_install_cmd nose mock lazygit
 
 echo "===== Installing Terminal Environment ====="
@@ -60,7 +60,7 @@ done
 echo "===== Installing Windowing Environment ====="
 $apt_install_cmd lightdm i3 rofi rxvt-unicode xserver-xorg-input-synaptics \
   xserver-xorg-input-all volumeicon-alsa libnotify-bin flameshot \
-  firefox-esr thunderbird keynav feh
+  firefox-esr thunderbird keynav feh thunar cups
 $pip_install_cmd spotify-cli-linux
 curl -o $HOME/Pictures/wallpaper.jpg https://images4.alphacoders.com/589/589406.jpg
 # optional packages: wicd-gtk (seems to be removed from testing/unstable)
