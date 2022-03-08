@@ -19,6 +19,10 @@ URxvt.url-select.underline: true
 ! Keybindings
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.M-k: command:\033]720;1\007
+URxvt.keysym.M-j: command:\033]721;1\007
+URxvt.keysym.M-h: command:\033]720;40\007
+URxvt.keysym.M-l: command:\033]721;40\007
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-Up: perl:font-size:increase
