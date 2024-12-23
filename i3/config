@@ -17,7 +17,7 @@ for_window [class="^.*"] border pixel 1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -89,12 +89,12 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # move current workspace to screen
-bindsym $mod+Ctrl+$_left move workspace to left
-bindsym $mod+Ctrl+$_down move workspace to down
-bindsym $mod+Ctrl+$_up move workspace to up
-bindsym $mod+Ctrl+$_right move workspace to right
-bindsym $mod+Ctrl+p workspace to eDP-1
-bindsym $mod+Ctrl+o workspace to HDMI-1
+bindsym $mod+Ctrl+$_left move workspace to output left
+bindsym $mod+Ctrl+$_down move workspace to output down
+bindsym $mod+Ctrl+$_up move workspace to output up
+bindsym $mod+Ctrl+$_right move workspace to output right
+bindsym $mod+Ctrl+p workspace to output eDP-1
+bindsym $mod+Ctrl+o workspace to output HDMI-1
 
 # scratchpad
 bindsym $mod+minus scratchpad show
@@ -153,9 +153,10 @@ bindsym $mod+Ctrl+Mod1+l exec i3lock -c 000000 -i ~/Pictures/lockscreen.png
 force_xinerama yes
 
 # Autostart
-#exec --no-startup-id wicd-gtk --tray
-exec --no-startup-id nm-applet
+exec --no-startup-id compton -b -f -D 4
+exec --no-startup-id wicd-gtk --tray
 exec --no-startup-id volumeicon
 exec --no-startup-id dropbox start
 exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 exec --no-startup-id setxkbmap -option compose:ralt
+exec --no-startup-id keynav
