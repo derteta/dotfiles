@@ -7,11 +7,8 @@ export DEBIAN_FRONTEND=noninteractive
 apt_install_cmd="sudo apt --assume-yes --quiet install"
 pip_install_cmd="sudo pip3 install"
 dev_folder=$HOME/Documents/dev
-urxvt_plugin_folder=/usr/lib/urxvt/perl
 
 my_github_repo="https://github.com/derteta"
-urxvt_plugin_repo1="https://raw.githubusercontent.com/muennich/urxvt-perls/master"
-urxvt_plugin_repo2="https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master"
 
 for folder in Desktop Documents Downloads Movies Music Pictures
 do
@@ -19,7 +16,6 @@ do
 done
 [ ! -d $dev_folder/forks ] && mkdir -p $dev_folder/forks
 [ ! -d $dev_folder/third-party ] && mkdir -p $dev_folder/third-party
-[ ! -d $urxvt_plugin_folder ] && sudo mkdir -p $urxvt_plugin_folder
 
 echo "===== Upgrading to Debian testing ====="
 echo "deb http://ftp.de.debian.org/debian/ testing main contrib non-free" | sudo tee /etc/apt/sources.list
@@ -38,14 +34,6 @@ $pip_install_cmd nose mock lazygit
 echo "===== Installing Terminal Environment ====="
 $apt_install_cmd fzf ripgrep bash-completion curl ncurses-dev xsel htop
 
-echo "===== Setting up URXVT Plugins ====="
-[ ! -f $urxvt_plugin_folder/keyboard-select ] && \
-  sudo curl -o $urxvt_plugin_folder/keyboard-select $urxvt_plugin_repo1/keyboard-select
-[ ! -f $urxvt_plugin_folder/url-select ] && \
-  sudo curl -o $urxvt_plugin_folder/url-select $urxvt_plugin_repo1/deprecated/url-select
-[ ! -f $urxvt_plugin_folder/font-size ] && \
-  sudo curl -o $urxvt_plugin_folder/fond-size $urxvt_plugin_repo2/font-size
-
 echo "===== Setting up Development Projects ====="
 [ ! -d $dev_folder/third-party/vim ] && \
   git clone https://github.com/vim/vim.git $dev_folder/third-party/vim
@@ -58,7 +46,7 @@ do
 done
 
 echo "===== Installing Windowing Environment ====="
-$apt_install_cmd lightdm i3 rofi rxvt-unicode xserver-xorg-input-synaptics \
+$apt_install_cmd lightdm i3 compton rofi kitty xserver-xorg-input-synaptics \
   xserver-xorg-input-all volumeicon-alsa libnotify-bin flameshot \
   firefox-esr thunderbird keynav feh thunar cups
 $pip_install_cmd spotify-cli-linux
